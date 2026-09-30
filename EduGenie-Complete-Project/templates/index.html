@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7fb">
+  <title>EduGenie — your learning companion</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="EduGenie home"><span class="brand-icon">E</span> EduGenie</a><span class="top-note">A little help goes a long way.</span></header>
+  <main class="layout">
+    <section class="intro">
+      <p class="eyebrow">YOUR PERSONAL STUDY SPACE</p>
+      <h1>Make learning<br><span>feel simpler.</span></h1>
+      <p class="intro-copy">Ask a question, explore a tricky idea, or turn your notes into a study plan. Start wherever you are.</p>
+      <div class="feature-list"><span>✦ Clear explanations</span><span>✦ Quizzes for practice</span><span>✦ Paths at your pace</span></div>
+    </section>
+
+    <section class="study-card" aria-labelledby="form-title">
+      <div class="card-heading"><div><p class="eyebrow">LET'S GET STARTED</p><h2 id="form-title">What would you like to do?</h2></div><div class="sparkle" aria-hidden="true">✳</div></div>
+      <form id="study-form">
+        <label for="task">Choose a study tool</label>
+        <div class="select-wrap"><select id="task" name="task">
+          <option value="qa">Ask a question</option><option value="explain">Explain a concept</option><option value="quiz">Make a quiz</option><option value="summarize">Summarize my notes</option><option value="learn/recommendations">Build a learning path</option>
+        </select></div>
+        <label for="level" id="level-label" hidden>Your current level</label>
+        <div class="select-wrap" id="level-wrap" hidden><select id="level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+        <label for="text" id="input-label">Your question</label>
+        <textarea id="text" name="text" rows="6" minlength="2" maxlength="20000" required placeholder="For example: Why do we have seasons?"></textarea>
+        <div class="form-foot"><span id="char-count">0 / 20,000</span><button type="submit" id="submit"><span>Help me learn</span><span aria-hidden="true">→</span></button></div>
+      </form>
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <section id="result-card" class="result-card" hidden aria-live="polite"><div class="result-top"><h3>Your study notes</h3><button id="copy" class="copy-button" type="button">Copy</button></div><div id="result"></div><p id="mode-note" class="mode-note"></p></section>
+      <p class="privacy-note">Your text is used only to prepare this response.</p>
+    </section>
+  </main>
+  <footer>Made for curious minds <span>✦</span></footer>
+  <script src="{{ url_for('static', path='/app.js') }}" defer></script>
+</body>
+</html>
